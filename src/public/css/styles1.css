@@ -1,0 +1,82 @@
+body {
+  background: #fff;
+  font-family: 'Oswald', sans-serif;
+  overflow: auto;
+}
+
+/* .index {
+  width: 100vw;
+  height: 100vh;
+} */
+
+.navbar {
+  /* background: linear-gradient(to left, red, black )!important; */
+  background: linear-gradient(to right, #000000, #ff173e);
+}
+
+.nav-link {
+  color: linear-gradient(to left, red, black ) !important;
+}
+
+.masthead {
+  color: black;
+  min-height: 30rem;
+  width: 100%;
+  height: 100%;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  /*background: url('/img/background.jpeg');*/
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.masthead h1 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 992px) {
+  .masthead {
+    height: 100vh;
+  }
+
+  .masthead h1 {
+    font-size: 5.5rem;
+  }
+}
+
+#titleone{
+  margin-top: 20%;
+}
+
+#titletwo{
+  margin: 5%;
+}
+
+.textinitial{
+  border-left: 50%;
+}
+  
+.alignbtn{
+ align-items: center;
+ margin-left: 5%;
+ 
+}
+
+#botao-um{
+  margin: 2%;
+}
+
+#botao-dois{
+  margin: 2%;
+}
+
+#form_tela_protocolo{
+  margin: 2%
+}
+
+#imagemprincipal{
+  max-width: 800px;
+}

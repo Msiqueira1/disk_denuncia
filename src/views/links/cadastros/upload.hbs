@@ -1,0 +1,196 @@
+<div class="container p-4 ">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <form action='upload' method='post' encType="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleInputNome" class="form-label">Informe o seu nome, essa informação é
+                                opcional. </label>
+                            <input type="name" name="nome" placeholder="Exemplo: Maria Júlia" class="form-control"
+                                autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="form-label">Informe o seu e-mail, essa informação é
+                                opcional. Mesmo não se identificando, você pode deixar um endereço de e-mail para que
+                                possamos entrar em contato.</label>
+                            <input type="email" name="email" placeholder="Exemplo: maria@gmail.com" class="form-control"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="form-label">Telefone, essa informação é
+                                opcional.</label>
+                            <input type="telphone" name="telefone" placeholder="Exemplo: 31999999999"
+                                class="form-control" id="exampleInputPassword1">
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="exampleInputRelato" class="form-label">Qual tipo de situação você
+                                gostaria de relatar? <font color="red">* <label id="cpobgtigatorio" hidden>Campo
+                                        Obrigatório</label> </font></label>
+                            <select class="select-css" name="id_denuncia" id="id_denuncia">
+                                <option selected disabled value="">Informe o Tipo de Denuncia</option>
+                                {{#each denuncia}}
+                                <option value="{{ID_DENUNCIA}}" id="{{TIPOLOGIA}}">
+                                    {{TIPOLOGIA}}
+                                </option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="validationDefault01" class="form-label">Selecione o local
+                                onde ocorreu: <font color="red">* <label id="cpobgtigatorio1" hidden>Campo
+                                        Obrigatório</label> </font></label>
+                            <select class="select-css" name="id_localidade" id="id_localidade" required>
+                                <option selected disabled value="">Informe uma Localidade</option>
+                                {{#each localidade}}
+                                <option value="{{ID_LOCALIDADE}}" id="{{LOCALIDADE}}">
+                                    {{LOCALIDADE}}
+                                </option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="validationDefault01" class="form-label">Foi algo que você
+                                vivenciou? <font color="red">* <label id="cpobgtigatorio2" hidden>Campo
+                                        Obrigatório</label> </font></label>
+                            <select class="select-css" name="vivenciou" id="vivenciou" required>
+                                <option selected disabled value=""></option>
+                                <option value="Sim">Sim, vivenciei</option>
+                                <option value="Não">Não, soube dela por outra pessoa</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="validationDefault03" class="form-label">Quando o fato ocorreu ou a
+                                quanto tempo esta ocerrendo? <font color="red">* <label id="cpobgtigatorio3"
+                                        hidden>Campo Obrigatório</label> </font></label>
+                            <select class="select-css" name="tempo_ocor" id="tempo_ocor" required>
+                                <option selected disabled value=""></option>
+                                <option value="Hoje">Hoje</option>
+                                <option value="Ontem">Ontem</option>
+                                <option value="Nesta semana">Nesta semana</option>
+                                <option value="Há mais de uma semana">Há mais de uma semana</option>
+                                <option value="Há mais de um mês">Há mais de um mês</option>
+                                <option value="Há mais de três meses">Há mais de três meses</option>
+                                <option value="Não sei informar">Não sei informar</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1" class="form-label">Informe a data do ocorrido
+                            </label>
+                            <input name="dt_relato" type="date" class="form-control" id="exampleFormControlTextarea1"
+                                rows="3"></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1" class="form-label">Nos conte o que aconteceu e
+                                lembre-se de
+                                informar todos os detalhes <font color="red">* <label id="cpobgtigatorio4" hidden>Campo
+                                        Obrigatório</label> </font></label>
+                            <textarea name="desc_relato" class="form-control" id="desc_relato" rows="3"
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1" class="form-label">Poderia indicar o nome completo da
+                                pessoa
+                                envolvida?</label>
+                            <input name="pessoa_envolvida" type="text" class="form-control"
+                                id="exampleFormControlInput1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1" class="form-label">Poderia indicar qual o cargo da
+                                pessoa
+                                envolvida?</label>
+                            <input name="cargo_envolvido" type="text" class="form-control"
+                                id="exampleFormControlInput1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1" class="form-label">Caso tenha alguma evidência do fato
+                                (fotos,
+                                documentos, etc) que gostaria de anexar, utilize a opção abaixo</label>
+                            <input name="image" type="file"
+                                accept=" .jpeg, .jpg, .png, .bmp, .tiff, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .zip, .rar, .mp3, .wav, .mp4, .avi, .webm, .mov, .wmv, .mkv, .txt, .csv"
+                                multiple="" class="form-control" id="exampleFormControlInput1">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="validationDefault04" class="form-label">Qual é a sua
+                                relação com nossa empresa? <font color="red">* <label id="cpobgtigatorio5" hidden>Campo
+                                        Obrigatório</label> </font></label>
+                            <select class="select-css" name="relacao_empregado" id="relacao_empregado" required>
+                                <option selected disabled value=""></option>
+                                <option value="Funcionário">Funcionário</option>
+                                <option value="Ex-funcionário">Ex-funcionário</option>
+                                <option value="Prestador de serviço">Prestador de serviço</option>
+                                <option value="Fornecedor">Fornecedor</option>
+                                <option value="Cliente">Cliente</option>
+                                <option value="Outro">Outro</option>
+                                <option value="Não quero informar">Não quero informar</option>
+                            </select>
+
+                            {{#each lastid}}
+                            <input name="id_relato" type="text" class="form-control" value={{ID_RELATO}} placeholder={{ID_RELATO}} hidden>
+                            {{/each}}
+                        </div>
+                        </br>
+                        </br>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block" onclick="valida()" value='Upload!'>
+                                Cadastrar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function valida() {
+        if (document.getElementById("id_denuncia").value == "") {
+            alert('Por favor nos informe detalhes sobre o ocorrido.');
+            document.getElementById("id_denuncia").focus();
+            document.getElementById("id_denuncia").setAttribute("required", "required");
+            document.getElementById("cpobgtigatorio").hidden = false;
+            return false
+        }
+        if (document.getElementById("id_localidade").value == "") {
+            alert('Por favor nos informe detalhes sobre o ocorrido.');
+            document.getElementById("id_localidade").focus();
+            document.getElementById("id_localidade").setAttribute("required", "required");
+            document.getElementById("cpobgtigatorio1").hidden = false;
+            return false
+        }
+        if (document.getElementById("vivenciou").value == "") {
+            alert('Por favor nos informe detalhes sobre o ocorrido.');
+            document.getElementById("vivenciou").focus();
+            document.getElementById("vivenciou").setAttribute("required", "required");
+            document.getElementById("cpobgtigatorio2").hidden = false;
+            return false
+        }
+        if (document.getElementById("tempo_ocor").value == "") {
+            alert('Por favor nos informe detalhes sobre o ocorrido.');
+            document.getElementById("tempo_ocor").focus();
+            document.getElementById("tempo_ocor").setAttribute("required", "required");
+            document.getElementById("cpobgtigatorio3").hidden = false;
+            return false
+        }
+        if (document.getElementById("desc_relato").value == "") {
+            alert('Por favor nos informe detalhes sobre o ocorrido.');
+            document.getElementById("desc_relato").focus();
+            document.getElementById("desc_relato").setAttribute("required", "required");
+            document.getElementById("cpobgtigatorio4").hidden = false;
+            return false
+        }
+        if (document.getElementById("relacao_empregado").value == "") {
+            alert('Por favor nos informe detalhes sobre o ocorrido.');
+            document.getElementById("relacao_empregado").focus();
+            document.getElementById("relacao_empregado").setAttribute("required", "required");
+            document.getElementById("cpobgtigatorio5").hidden = false;
+            return false
+        }
+    }
+</script>

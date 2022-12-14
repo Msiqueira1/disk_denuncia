@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+</head>
+
+<body>
+    <!-- Bootstrap table -->
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+
+                <th data-field="tipologia" data-editable="true"> Arquivo </th>
+                <th scope="col">Data Cadastro</th>
+                <th scope="col"></th>
+            </tr>
+
+            {{#each denuncia}}
+
+            <tr id={{id}}>
+
+                <td class="row-data">{{image}}</td>
+                <td class="row-data"></td>
+                <td><input type="button" value="Download" onclick="download()" /></td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+
+    <script>
+        function download() {
+            var rowId =
+                event.target.parentNode.parentNode.id;
+            //this gives id of tr whose button was clicked
+            var data =
+                document.getElementById(rowId).querySelectorAll(".row-data");
+            /*returns array of all elements with 
+            "row-data" class within the row with given id*/
+
+            var name = data[0].innerHTML;
+            var age = data[1].innerHTML;
+
+            alert("Name: " + name + "\nAge: " + age);
+        }
+    </script>
+</body>
+
+</html>

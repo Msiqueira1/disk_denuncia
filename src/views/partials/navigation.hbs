@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="/img/lg1.png" alt="Logo Fazt" height="50" width="185">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+
+        {{!-- layout menu administrador --}}
+        {{#if user.ADMINISTRADOR}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Cadastros
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/links/cadastros/cadastro_denuncia">Denúncia</a>
+            <a class="dropdown-item" href="/links/cadastros/cadastro_localidade">Localidade</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/links/cadastros/cadastro_usuarios">Usuário</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Consultas
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/links/consultas/consulta_denuncia">Denúncia</a>
+            <a class="dropdown-item" href="/links/consultas/consulta_localidade">Localidade</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/links/consultas/consulta_usuarios">Usuário</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Sair</a>
+        </li>
+        {{else}}
+
+        {{!-- layout menu gestor --}}
+        {{#if user.TIPO_DEN}}
+
+        <li class="nav-item">
+          <a class="nav-link" href="/links/consultas/consulta_relato">Denuncias</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Sair</a>
+        </li>
+        {{else}}
+
+        {{!-- layout menu gestor --}}
+        {{#if user.TIPO_PROTOCOLO}}
+        {{!-- <li class="nav-item">
+          <a class="nav-link" href="/links/consultas/consulta_relato">Minha Denuncia</a>
+        </li> --}}
+
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Sair</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/signin">Admin</a>
+        </li>
+
+        {{!-- <li class="nav-item">
+          <a class="nav-link" href="/signup">SignUp</a>
+        </li> --}}
+        {{/if}}
+        {{/if}}
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>

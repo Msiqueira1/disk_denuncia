@@ -1,0 +1,27 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Express, upload de arquivos</title>
+</head>
+
+<body>
+    <h1>Express, upload de arquivos</h1>
+    <form action='upload' method='post' encType="multipart/form-data">
+
+        <input name="image" type="file"
+            accept=" .jpeg, .jpg, .png, .bmp, .tiff, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .zip, .rar, .mp3, .wav, .mp4, .avi, .webm, .mov, .wmv, .mkv, .txt, .csv"
+            multiple="" class="form-control" id="exampleFormControlInput1">
+
+        {{!-- <input type="file" name="image" /> --}}
+
+        <button class="btn btn-success btn-block" onclick="valida()" value='Upload!'>
+            Upload
+        </button>
+        {{!-- <input type='submit' value='Upload!' /> --}}
+    </form>
+</body>
+
+</html>
